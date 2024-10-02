@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react'; // Add useState import
 import DoctorCard from "./../../components/Doctors/DoctorCard";
 import {doctors} from "./../../assets/data/doctors";
 import Testimonial from "../../components/Testimonial/Testimonial";
