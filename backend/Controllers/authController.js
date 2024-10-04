@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
 // import * as crypto from 'crypto';
 
-import messages from '../const.js'
+import messages from '../utils/const.js'
 
 const generateToken = user=>{
     return jwt.sign(
