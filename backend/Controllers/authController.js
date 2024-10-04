@@ -4,10 +4,11 @@ import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
 // import * as crypto from 'crypto';
 
+import messages from '../const.js'
 
 const generateToken = user=>{
     return jwt.sign(
-        {id:user._id, role: user.role}, 
+        {id:user._id, role: user.role},
         process.env.JWT_SECRET_KEY,{
             expiresIn: "15d",
         }
@@ -17,10 +18,9 @@ const generateToken = user=>{
 export const register = async (req, res) => {
     const {email, password, name, role, photo, gender} = req.body
     try{
-
         let user = null
         if(role== 'patient'){
-           user = await User.findOne({email})
+            user = await User.findOne({email})
         }
         else if(role == 'doctor'){
             user = await Doctor.findOne({email})
@@ -28,7 +28,7 @@ export const register = async (req, res) => {
 
         // check if user exist
         if(user){
-            return res.status(400).json({message:'User already exist'})
+            return res.status(400).json({message: messages.user.alreadyExists });
         }
 
         // hash password
@@ -58,19 +58,17 @@ export const register = async (req, res) => {
         }
 
         await user.save()
-        res.status(200).json({success:true, message:'User successfully created'})
+        res.status(200).json({success:true, message: messages.user.createdSuccessfully });
 
     }catch(err){
-        res.status(500).json({success:false, message:'Internal server error, Try again'})
+        res.status(500).json({ success: false, message: messages.error.serverError });
     }
 };
 
 export const login = async (req, res) => {
-
     const {email, password} = req.body
 
     try{
-
         let user = null
         const patient = await User.findOne({email})
         const doctor = await Doctor.findOne({email})
@@ -84,14 +82,14 @@ export const login = async (req, res) => {
 
         // check if user exist or not
         if(!user){
-            return res.status(404).json({message: "User not found"});
+            return res.status(404).json({message: messages.user.notFound});
         }
 
         // compare password
-        const isPasswordMatch = await bcrypt.compare(password, user.password)
+        const isPasswordMatch = await bcrypt.compare(password, user.password);
 
         if(!isPasswordMatch){
-            return res.status(400).json({status:false, message : "Invalid credentials"});
+            return res.status(400).json({status:false, message: messages.user.invalidCredentials});
         }
 
         // get token
@@ -99,9 +97,8 @@ export const login = async (req, res) => {
 
         const { password, role, appointments, ...rest} = user._doc;
 
-        res.status(200).json({status:true, message:"Successfully login", token, data: {...rest}, role});
-
+        res.status(200).json({status:true, message: messages.user.loginSuccess, token, data: {...rest}, role});
     }catch(err){
-        res.status(500).json({status:false, message : "Failed to Login"});
+        res.status(500).json({status:false, message: messages.error.loginFailed });
     }
 };

@@ -1,5 +1,6 @@
 import User from "../models/UserSchema.js";
 import BookingSchema from "../models/BookingSchema.js";
+import messages from "../utils/const.js";
 
 export const updateUser = async(req, res) => {
     const id = req.params.id
@@ -7,10 +8,10 @@ export const updateUser = async(req, res) => {
     try {
          const updatedUser = await User.findByIdAndUpdate(id, {$set: req.body}, {new:true})
 
-         res.status(200).json({sucess: true, message: 'Successfully updated', data:updatedUser})
+         res.status(200).json({success: true, message: messages.user.updateSuccess, data:updatedUser})
     }
     catch(err){
-        res.status(500).json({success:false, message: 'Failed to update'});
+        res.status(500).json({success:false, message: messages.user.updateFail});
     }
 };
 
@@ -18,12 +19,12 @@ export const deleteUser = async(req, res) => {
     const id = req.params.id
 
     try {
-         await User.findByIdAndDelete(id, )
+         await User.findByIdAndDelete(id)
 
-         res.status(200).json({sucess: true, message: 'Successfully deleted'})
+         res.status(200).json({success: true, message: messages.user.deleteSuccess})
     }
     catch(err){
-        res.status(500).json({success:false, message: 'Failed to delete'});
+        res.status(500).json({success:false, message: messages.user.deleteFail});
     }
 };
 
@@ -33,10 +34,10 @@ export const getSingleUser = async(req, res) => {
     try {
          const user = await User.findById(id).select("-password");
 
-         res.status(200).json({sucess: true, message: 'User found', data:user})
+         res.status(200).json({success: true, message: messages.user.getSuccess, data:user})
     }
     catch(err){
-        res.status(404).json({success:false, message: 'No user found'});
+        res.status(404).json({success:false, message: messages.user.getFail});
     }
 };
 
@@ -45,10 +46,10 @@ export const getAllUser = async(req, res) => {
     try {
          const users = await User.find({}).select("-password");
 
-         res.status(200).json({sucess: true, message: 'Users found', data:users})
+         res.status(200).json({success: true, message: messages.user.getAllSuccess, data: users})
     }
     catch(err){
-        res.status(404).json({success:false, message: 'Not found'});
+        res.status(404).json({success:false, message: messages.user.getAllFail});
     }
 };
 
@@ -59,15 +60,15 @@ export const getUserProfile = async(req, res) => {
         const user = await User.findById(userId)
 
         if(!user){
-            return res.status(404).json({success:false, message:'User not found'});
+            return res.status(404).json({success:false, message: messages.user.profileFail});
         }
 
         const {password, ...rest} = user._doc;
 
-        res.status(200).json({sucess: true, message: 'Profile info is getting', data:{...rest}});
+        res.status(200).json({success: true, message: messages.user.profileSuccess, data:{...rest}});
     } 
     catch(err) {
-        res.status(500).json({success:false, message: 'Something went wrong, cannot get'});
+        res.status(500).json({success:false, message: messages.user.profileFail});
     }
 };
 
@@ -77,14 +78,14 @@ export const getMyAppointments = async(req, res) => {
         const bookings = await Booking.find({user:req.userId})
 
         // step-2: extract doctor ids from appointment bookings
-        const doctorIds = bookings.map(el=>el.doctor.id)
+        const doctorIds = bookings.map(el => el.doctor.id)
 
         // step-3: retrieve doctors using doctor ids
         const doctors = await Doctor.find({_id: {$in:doctorIds}}).select('-password') 
 
-        res.status(200).json({success:true, message: 'Appointments are getting', data:doctors})
+        res.status(200).json({success:true, message: messages.user.appointmentSuccess, data:doctors})
     }
     catch(err){
-        res.status(500).json({success:false, message: 'Something went wrong, cannot get'});
+        res.status(500).json({success:false, message: messages.user.appointmentFail});
     }
 }

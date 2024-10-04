@@ -2,6 +2,7 @@ import User from '../models/UserSchema.js'
 import Doctor from '../models/DoctorSchema.js'
 import Booking from '../models/BookingSchema.js'
 import Stripe from 'stripe'
+import messages from '../utils/const.js';
 
 export const getCheckoutSession = async(req,res)=>{
     try{
@@ -44,11 +45,11 @@ export const getCheckoutSession = async(req,res)=>{
 
         await booking.save()
 
-        res.status(200).json({success:true, message:'Successfully paid', session})
+        res.status(200).json({success:true, message:messages.booking.paymentSuccess, session})
     } catch(err){
         res
         .status(500)
-        .json({ success:false, messasge: "Error creating checkout session" });
+        .json({ success:false, messasge: messages.booking.paymentError });
 
     }
 }
