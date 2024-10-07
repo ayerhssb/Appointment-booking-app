@@ -14,6 +14,14 @@ export const getAllReviews = async (req, res) => {
 };
 
 // create review
+/**
+ * Creates a new review and saves it to the database.
+ * 
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Promise<void>} - A promise that resolves when the review is created and saved.
+ * @throws {Error} - If there is an error while creating or saving the review.
+ */
 export const createReview = async(req,res) =>{
     if(!req.body.doctor) req.body.doctor = req.params.doctorId
     if(!req.body.user) req.body.user = req.userId;

@@ -4,6 +4,14 @@ import Booking from '../models/BookingSchema.js'
 import Stripe from 'stripe'
 import messages from '../utils/const.js';
 
+/**
+ * Retrieves the checkout session for booking a doctor appointment.
+ * 
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Promise<void>} - A promise that resolves when the checkout session is retrieved.
+ * @throws {Error} - If there is an error retrieving the checkout session.
+ */
 export const getCheckoutSession = async(req,res)=>{
     try{
 

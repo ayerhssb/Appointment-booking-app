@@ -1,3 +1,7 @@
+/**
+ * @file This file contains the authentication controller functions for user registration and login.
+ */
+
 import User from '../models/UserSchema.js'
 import Doctor from '../models/DoctorSchema.js'
 import jwt from 'jsonwebtoken'
@@ -6,6 +10,11 @@ import bcrypt from 'bcryptjs'
 
 import messages from '../utils/const.js'
 
+/**
+ * Generates a JSON Web Token (JWT) for the given user.
+ * @param {Object} user - The user object.
+ * @returns {string} - The generated JWT.
+ */
 const generateToken = user=>{
     return jwt.sign(
         {id:user._id, role: user.role},
@@ -15,6 +24,12 @@ const generateToken = user=>{
     );
 };
 
+/**
+ * Registers a new user.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} - The response object.
+ */
 export const register = async (req, res) => {
     const {email, password, name, role, photo, gender} = req.body
     try{
@@ -65,6 +80,12 @@ export const register = async (req, res) => {
     }
 };
 
+/**
+ * Logs in a user.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Object} - The response object.
+ */
 export const login = async (req, res) => {
     const {email, password} = req.body
 
