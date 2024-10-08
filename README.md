@@ -89,11 +89,27 @@ npm install
 node index.js
 ```
 
-### 4.Start the application:
+### 4. Create a .env file for backend configuration:
+In the backend directory, create a .env file with the following environment variables:
 ```bash
+PORT=8000
+MONGO_URL=YOUR_MONGO_URL
+JWT_SECRET_KEY=YOUR_JWT_SECRET_KEY
+STRIPE_SECRET_KEY=YOUR_STRIPE_SECRET_KEY
+CLIENT_SITE_URL=YOUR_CLIENT_SITE_URL
+```
+
+### 5. Start the application:
+
+- For development mode (with hot-reloading):
+```bash
+npm run start-dev
+```
+- To run the server normally:
+```
 npm start
 ```
-## 5. Usage
+## 6. Usage
 
 Once you have set up the project, you can:
 
@@ -102,7 +118,7 @@ Once you have set up the project, you can:
 - Test with sample data: Use provided sample data or mock APIs for testing the functionality.
 
 
-## 6. Contributing 🤝
+## 7. Contributing 🤝
 
 We welcome contributions from everyone! If you would like to contribute to ElectroKart, please follow these steps:
 
@@ -113,7 +129,7 @@ We welcome contributions from everyone! If you would like to contribute to Elect
 ```
 
 
-## 7. Pull Request Review Criteria 🧲
+## 8. Pull Request Review Criteria 🧲
 
 1. Please fill out the PR template properly when creating a pull request.
 2. Assign yourself to the issue you’re working on to help us track progress.
