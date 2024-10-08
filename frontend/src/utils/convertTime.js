@@ -1,7 +1,8 @@
-const convertTime = time =>{
+const convertTime = (time) =>{
     // timeParts will return an array
-
-    const timeParts = timesplit(":");
+console.log(time)
+if(!time) return time
+    const timeParts = time?.slice(":");
     let hours  = parseInt(timeParts[0]);
     const minutes = parseInt(timeParts[1]);
 

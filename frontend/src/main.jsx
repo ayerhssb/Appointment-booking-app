@@ -10,7 +10,8 @@ import { AuthContextProvider } from './context/AuthContext.jsx';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
   <BrowserRouter>
-  <AuthContextProvider>
+<AuthContextProvider>
+
   <ToastContainer
     theme='dark'
     position='top-right'
@@ -19,7 +20,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     pauseOnHover={false}
   />
   <App />
-  </AuthContextProvider>
+
+</AuthContextProvider>
   </BrowserRouter>
    
   </React.StrictMode>

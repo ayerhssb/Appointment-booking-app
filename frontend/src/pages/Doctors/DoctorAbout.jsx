@@ -10,7 +10,7 @@ const DoctorAbout = ({name, about,qualifications,experiences}) => {
                     {name}
                 </span>
             </h3>
-            <p className='text__para'>
+            <p className=''>
                 {about}
             </p>
         </div>
@@ -25,7 +25,7 @@ const DoctorAbout = ({name, about,qualifications,experiences}) => {
                         {formateDate(item.startingDate)} - {formateDate(item.endingDate)}
                         </span>
                         <p className='text-[15px] leading-6 font-medium text-textColor'>
-                            {item.degree}
+                            {item?.degree}
                         </p>
                     </div>
                     <p className='text-[14px] leading-5 font-medium text-textColor'>
