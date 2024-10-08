@@ -2,6 +2,13 @@ import jwt from "jsonwebtoken";
 import Doctor from "../models/DoctorSchema.js";
 import User from "../models/UserSchema.js";
 
+/**
+ * Middleware function to authenticate the user using a token.
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @param {Function} next - The next function to be called.
+ * @returns {Object} - The response object.
+ */
 export const authenticate = async (req, res,next) => {
     // get token from headers
     const authToken = req.headers.authorization;

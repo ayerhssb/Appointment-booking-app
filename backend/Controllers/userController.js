@@ -72,6 +72,22 @@ export const getUserProfile = async(req, res) => {
     }
 };
 
+/**
+ * Retrieves the appointments of the current user.
+ * 
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Promise<void>} - A promise that resolves when the appointments are retrieved.
+ * @throws {Error} - If there is an error retrieving the appointments.
+ */
+/**
+ * Retrieves the appointments of the current user.
+ * 
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Promise<void>} - A promise that resolves when the appointments are retrieved.
+ * @throws {Error} - If there is an error retrieving the appointments.
+ */
 export const getMyAppointments = async(req, res) => {
     try{
         // step-1: retrieve appointments from booking for specific user

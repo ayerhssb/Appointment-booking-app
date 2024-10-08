@@ -15,6 +15,23 @@ export const updateDoctor = async(req, res) => {
     }
 };
 
+/**
+ * Deletes a doctor from the database.
+ *
+ * @param {Object} req - The request object.
+ * @param {Object} res - The response object.
+ * @returns {Promise<void>} - A promise that resolves when the doctor is deleted.
+ * @throws {Error} - If there is an error while deleting the doctor.
+ *
+ * @example
+ * deleteDoctor(req, res)
+ *   .then(() => {
+ *     // Doctor deleted successfully
+ *   })
+ *   .catch((error) => {
+ *     // Handle error
+ *   });
+ */
 export const deleteDoctor = async(req, res) => {
     const id = req.params.id
 

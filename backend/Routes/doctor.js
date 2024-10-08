@@ -4,6 +4,14 @@ import { updateDoctor, deleteDoctor,getAllDoctor,getSingleDoctor, getDoctorProfi
 import { authenticate, restrict } from "../auth/verifyToken.js";
 import reviewRouter from "./review.js";
 
+/**
+ * Express router object for handling routes.
+ * @type {express.Router}
+ */
+/**
+ * Express router instance for handling doctor routes.
+ * @type {express.Router}
+ */
 const router = express.Router();
 
 // nested route
