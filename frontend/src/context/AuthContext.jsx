@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const initialState = {
   user:
-    localStorage.getItem("user") != undefined
+    localStorage.getItem("user") !== undefined
       ? JSON.parse(localStorage.getItem("user"))
       : null,
   role: localStorage.getItem("role") || null,

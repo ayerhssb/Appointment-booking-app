@@ -1,6 +1,13 @@
 
 # Doctor's Appointment Web Application (MERN Stack)
 
+<<<<<<< HEAD
+## Project Overview
+
+This full-stack web application allows patients to book appointments with doctors in a seamless and efficient way. Built using the MERN stack (MongoDB, Express.js, React.js, and Node.js), the app offers an intuitive interface for both patients and doctors, enabling online scheduling, location-based services, and real-time appointment management.
+
+## Run Locally
+=======
 ## Table of Contents
 1. [Project Overview](#1-project-overview)
 2. [Features](#2-features)
@@ -15,6 +22,7 @@
 ## 1. Project Overview
 
 This full-stack web application allows patients to book appointments with doctors in a seamless and efficient way. Built using the MERN stack (MongoDB, Express.js, React.js, and Node.js), the app offers an intuitive interface for both patients and doctors, enabling online scheduling, location-based services, and real-time appointment management.
+>>>>>>> faaaced863db249c03f89cda3ff117a7302d9c69
 
 ## 2. Features
 
@@ -112,8 +120,12 @@ We welcome contributions from everyone! If you would like to contribute to Elect
    git clone https://github.com/<your-github-username>/Appointment-booking-app.git
 ```
 
+<<<<<<< HEAD
+## Tech Stack
+=======
 
 ## 7. Pull Request Review Criteria 🧲
+>>>>>>> faaaced863db249c03f89cda3ff117a7302d9c69
 
 1. Please fill out the PR template properly when creating a pull request.
 2. Assign yourself to the issue you’re working on to help us track progress.
@@ -127,6 +139,17 @@ npm run test
 
 ## 8. Code of Conduct 😇
 
+<<<<<<< HEAD
+**Database:** MongoDB for storing user data and appointments
+
+**APIs:** Google Maps API for location services
+
+## Future Enhancements
+
+Notification System: Implementing email or SMS reminders for upcoming appointments.
+
+Real-time chat feature
+=======
 We strive to create a welcoming and inclusive environment for all contributors and users. By participating in this project, you agree to abide by our Code of Conduct.
 
 ### Our Standards
@@ -137,3 +160,4 @@ We strive to create a welcoming and inclusive environment for all contributors a
 4. **Professionalism**: Maintain professionalism in all interactions, online and offline.
 
 
+>>>>>>> faaaced863db249c03f89cda3ff117a7302d9c69

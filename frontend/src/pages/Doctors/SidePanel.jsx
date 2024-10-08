@@ -46,10 +46,10 @@ const SidePanel = ({doctorId, ticketPrice, timeSlots}) => {
             {timeSlots?.map((item, index)=> (
                 <li key={index} className='flex items-center justify-between mb-2'>
                     <p className='text-[15px] leading-6 text-textColor font-semibold'>
-                        {item.day.charAt(0).toUpperCase() + item.day.slice(1)}
+                        {item?.day?.charAt(0).toUpperCase() + item?.day?.slice(1)}
                     </p>
                     <p className='text-[15px] leading-6 text-textColor font-semibold'>
-                        {convertTime(item.startingTime)} - {convertTime(item.endingTime)}
+                        {convertTime(item?.timeSlots)} - {convertTime(item?.endingTime)}
                     </p>
                 </li>
             ))}
