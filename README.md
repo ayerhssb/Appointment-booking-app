@@ -75,25 +75,21 @@ git clone https://github.com/<your-github-username>/Appointment-booking-app.git
 ```bash
 cd Appointment-booking-app
 ```
-### 3. Install the dependencies:
+### 3. Install the dependencies and start the application:
 - For Frontend:
 ```bash
 cd frontend
 npm install
-npm start
+npm run dev
 ```
 - For Backend:
 ```bash
 cd backend
 npm install
-node index.js
-```
-
-### 4.Start the application:
-```bash
 npm start
 ```
-## 5. Usage
+
+## 4. Usage
 
 Once you have set up the project, you can:
 
@@ -102,7 +98,7 @@ Once you have set up the project, you can:
 - Test with sample data: Use provided sample data or mock APIs for testing the functionality.
 
 
-## 6. Contributing 🤝
+## 5. Contributing 🤝
 
 We welcome contributions from everyone! If you would like to contribute to ElectroKart, please follow these steps:
 
@@ -113,7 +109,7 @@ We welcome contributions from everyone! If you would like to contribute to Elect
 ```
 
 
-## 7. Pull Request Review Criteria 🧲
+## 6. Pull Request Review Criteria 🧲
 
 1. Please fill out the PR template properly when creating a pull request.
 2. Assign yourself to the issue you’re working on to help us track progress.
@@ -125,7 +121,7 @@ We welcome contributions from everyone! If you would like to contribute to Elect
 npm run test
 ```
 
-## 8. Code of Conduct 😇
+## 7. Code of Conduct 😇
 
 We strive to create a welcoming and inclusive environment for all contributors and users. By participating in this project, you agree to abide by our Code of Conduct.
 
