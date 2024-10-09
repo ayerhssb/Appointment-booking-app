@@ -44,7 +44,7 @@ body{
 
 .sticky__header{
   width: 100%;
-  height: 80px;
+  height: 40px;
   line-height: 80px;
   position:sticky;
   top:0;

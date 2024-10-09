@@ -2,6 +2,7 @@ import React from 'react';
 import aboutImg from "../../assets/about.png";
 import aboutCardImg from "../../assets/about-card.png";
 import { Link } from 'react-router-dom';
+import { Button } from '../ui/button';
 
 const About = () => {
   return ( 
@@ -27,7 +28,7 @@ const About = () => {
                 Our best is something we strive for each day, caring for our patients-not looking 
                 back at what we accomplished but towards what we can do tomorrow. Providing the best.
               </p>
-              <Link to='/'><button className='btn'>Learn More</button></Link>
+              <Link to='/'><Button className='btn bg-blue-600'>Learn More</Button></Link>
             </div>
         </div>
     </div>
