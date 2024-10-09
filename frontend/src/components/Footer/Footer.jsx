@@ -25,7 +25,7 @@ const socialLinks = [
 
 const quickLinks01 = [
   {
-    path: "/home",
+    path: "/",
     display: "Home",
   },
   {
@@ -44,7 +44,7 @@ const quickLinks01 = [
 
 const quickLinks02 = [
   {
-    path: "/find-a-doctor",
+    path: "/doctors",
     display: "Find a Doctor",
   },
   {
@@ -63,7 +63,7 @@ const quickLinks02 = [
 
 const quickLinks03 = [
   {
-    path: "/home",
+    path: "/",
     display: "Donate",
   },
   {
