@@ -16,6 +16,7 @@ import ServiceList from '../components/Services/ServiceList';
 import DoctorList from '../components/Doctors/DoctorList';
 import FaqList from '../components/Faq/FaqList';
 import Testimonial from '../components/Testimonial/Testimonial';
+import {Button} from '../components/ui/button'
 
 const Home = () => {
   return <>
@@ -30,10 +31,8 @@ const Home = () => {
               <h1 className='text-[36px] leading-[46px] text-headingColor font-[800] md:text-[60px] md:leading-[70px]'>
                 We help patients live a healthy, longer life.
               </h1>
-              <p className='text__para'>
-                Lorem ipsum
-              </p>
-              <button className='btn'>Request an Appointment</button>
+            
+              <Button className='btn text-xl bg-blue-600 p-7'>Request an Appointment</Button>
             </div>
 
             {/*---------- hero counter ---------- */}
@@ -178,7 +177,7 @@ const Home = () => {
                   online scheduling tool to select an appointment time. </li>
                 </ul>
                 <Link to="/">
-                  <button className='btn'>Learn More</button>
+                  <Button className='btn bg-blue-600'>Learn More</Button>
                 </Link>
               </div>
               {/* ---------- feature img---------- */}

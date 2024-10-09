@@ -1,97 +1,68 @@
-import {useEffect,useRef , useContext} from 'react';
+import { useContext } from 'react';
 import logo from "../../assets/logo.png";
-import { NavLink,Link } from 'react-router-dom';
-import {BiMenu} from 'react-icons/bi';
+import { NavLink, Link } from 'react-router-dom';
 import { authContext } from '../../context/AuthContext';
-
-const navLinks = [
-  {
-    path:'/home',
-    display: 'Home'
-  },
-  {
-    path:'/doctors',
-    display: 'Find a Doctor'
-  },
-  {
-    path:'/services',
-    display: 'Services'
-  },
-  {
-    path:'/contact',
-    display: 'Contact'
-  },
-]
+import Resonsive from './responsive-navbar';
+import { navLinks } from './nav-link';
+import { Button } from '../ui/button';
 
 const Header = () => {
-
-  const headerRef = useRef(null)
-  const menuRef = useRef(null)
-  const {user, role, token} = useContext(authContext)
-
-  const handleStickyHeader =() =>{
-    window.addEventListener('scroll',()=>{
-      if(document.body.scrollTop >80 || document.documentElement.scrollTop > 80){
-        headerRef.current.classList.add('sticky__header')
-      }
-      else{
-        headerRef.current.classList.remove('sticky__header')
-      }
-    })
-  }
-
-  useEffect(()=>{
-    handleStickyHeader()
-    return ()=> window.removeEventListener('scroll',handleStickyHeader)
-  })
-
-  const toggleMenu = ()=> menuRef.current.classList.toggle('show__menu')
+  const { user, role, token } = useContext(authContext);
 
   return (
-    <header className ="header flex items-center" ref={headerRef}>
-      <div className='container'>
-        <div className='flex items-center justify-between'>
+    <header className="bg-[url('./assets/mask.png')] bg-no-repeat bg-center backdrop-blur bg-cover w-full h-[70px] flex items-center sticky top-0 z-50 border-b">
+      <div className="container">
+        <div className="flex items-center justify-between">
           {/* ------ logo ------- */}
+ 
 
-          <div>
-            <img src ={logo} alt=''/>
-          </div>
+            <Link to={'/'}>
+              <div>
+                <img src={logo} alt="Logo" />
+              </div>
+            </Link>
 
-          { /* ------ menu ------- */}
-          <div className ="navigation" ref={menuRef} onClick={toggleMenu}>
-            <ul className='menu flex items-center gap-[2.7rem]'>
-              {
-                navLinks.map((link,index)=><li key={index}>
-                <NavLink to={link.path} className={navClass=> navClass.isActive 
-                ? 'text-primaryColor text-[16px] leading-7 font-[600]' 
-                : 'text-textColor text-[16px] leading-7 font-[500] hover:text-primaryColor'}>
-                  {link.display}
-                </NavLink>
-                </li>)
-              }
+          {/* ------ menu ------- */}
+          <div className="navigation">
+            <ul className=" flex items-center gap-[2.7rem]">
+              {navLinks.map((link, index) => (
+                <li key={index}>
+                  <NavLink
+                    to={link.path}
+                    className={(navClass) =>
+                      navClass.isActive
+                        ? 'text-primaryColor text-[16px] leading-7 font-[600]'
+                        : 'text-textColor text-[16px] leading-7 font-[500] hover:text-primaryColor'
+                    }
+                  >
+                    {link.display}
+                  </NavLink>
+                </li>
+              ))}
             </ul>
           </div>
 
-          { /* ------ nav right ------- */}
-          <div className='flex items-center gap-4'>
-
-          {
-            token && user ? <div>
-                <Link to= {`${role=='doctor' ? '/doctors/profile/me' : '/users/profile/me' }`}>
+          {/* ------ nav right ------- */}
+          <div className="flex items-center gap-4">
+            {token && user ? (
+              <Link to={role === 'doctor' ? '/doctors/profile/me' : '/users/profile/me'}>
+                <div className="flex items-center">
                   <figure className="w-[35px] h-[35px] rounded-full cursor-pointer">
-                    <img src={user?.photo} className="w-full rounded-full" alt=''/>
+                    <img src={user?.photo} className="w-full rounded-full" alt="User Profile" />
                   </figure>
-
-                  <h2>{user?.name}</h2>
-                </Link>
-              </div> : <Link to='/login'>
-                <button className='bg-primaryColor py-2 px-6 text-white font-[600] h-[44px] flex items-center justify-center rounded-[50px]'>Login</button>
+                  <h2 className="ml-2">{user?.name}</h2>
+                </div>
               </Link>
-          }
-              
-              <span className='md:hidden' onClick={toggleMenu}>
-                <BiMenu className='w-6 h-6 cursor-pointer'/>
-              </span>
+            ) : (
+              <Link to="/login">
+                <Button className="bg-primaryColor  text-white font-[600] h-[44px] flex items-center justify-center rounded-md">
+                  Login
+                </Button>
+              </Link>
+            )}
+            <div className="md:hidden">
+              <Resonsive />
+            </div>
           </div>
         </div>
       </div>

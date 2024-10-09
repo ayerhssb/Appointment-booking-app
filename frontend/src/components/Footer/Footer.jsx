@@ -25,7 +25,7 @@ const socialLinks = [
 
 const quickLinks01 = [
   {
-    path: "/home",
+    path: "/",
     display: "Home",
   },
   {
@@ -44,7 +44,7 @@ const quickLinks01 = [
 
 const quickLinks02 = [
   {
-    path: "/find-a-doctor",
+    path: "/doctors",
     display: "Find a Doctor",
   },
   {
@@ -63,7 +63,7 @@ const quickLinks02 = [
 
 const quickLinks03 = [
   {
-    path: "/home",
+    path: "/",
     display: "Donate",
   },
   {
@@ -77,7 +77,7 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className='pb-16 pt-10'>
+    <footer className='pb-16 pt-10 border'>
       <div className='container'>
         <div className='flex justify-between flex-col md:flex-row flex-wrap gap-[30px]'>
           <div>
