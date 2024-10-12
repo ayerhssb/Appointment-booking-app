@@ -1,13 +1,12 @@
 
-# Doctor's Appointment Web Application (MERN Stack)
+# Doctor's Appointment Web Application (MERN Stack) :hospital: :computer:
 
-<<<<<<< HEAD
-## Project Overview
+## Project Overview :sparkles:
 
-This full-stack web application allows patients to book appointments with doctors in a seamless and efficient way. Built using the MERN stack (MongoDB, Express.js, React.js, and Node.js), the app offers an intuitive interface for both patients and doctors, enabling online scheduling, location-based services, and real-time appointment management.
+This full-stack web application allows patients to book appointments with doctors in a seamless and efficient way. Built **using the MERN stack (MongoDB, Express.js, React.js, and Node.js)**, the app offers an intuitive interface for both patients and doctors, enabling online scheduling, location-based services, and real-time appointment management.
 
 ## Run Locally
-=======
+
 ## Table of Contents
 1. [Project Overview](#1-project-overview)
 2. [Features](#2-features)
@@ -19,12 +18,7 @@ This full-stack web application allows patients to book appointments with doctor
 8. [Code of Conduct](#8-code-of-conduct-)
 
 
-## 1. Project Overview
-
-This full-stack web application allows patients to book appointments with doctors in a seamless and efficient way. Built using the MERN stack (MongoDB, Express.js, React.js, and Node.js), the app offers an intuitive interface for both patients and doctors, enabling online scheduling, location-based services, and real-time appointment management.
->>>>>>> faaaced863db249c03f89cda3ff117a7302d9c69
-
-## 2. Features
+## 1. Features :rocket:
 
 - **Doctor Profiles**: Browse and filter doctors by specialty, location, availability, and ratings.
 - **Appointment Booking**: Schedule appointments for in-person or virtual consultations.
@@ -41,7 +35,7 @@ This full-stack web application allows patients to book appointments with doctor
 - **Ratings and Reviews**: Leave feedback and rate doctors after consultations.
 
   
-## 3. Tech Stack
+## 2. Tech Stack :hammer_and_wrench:
 
 - **Frontend**: 
   - ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=react&logoColor=black)
@@ -60,11 +54,11 @@ This full-stack web application allows patients to book appointments with doctor
   - ![JWT](https://img.shields.io/badge/JWT-000000?style=flat-square&logo=json-web-tokens&logoColor=white)
 
 
-## 4. Installation
+## 3. Installation :gear:
 
 Follow these steps to set up Appointment-booking-app locally:
 
-### Prerequisites
+### Prerequisites :toolbox:
 - **Node.js** (version >= 14.x)
 - **npm** (version >= 6.x)
 
@@ -73,17 +67,17 @@ You can check if Node.js and npm are installed by running:
 node -v
 npm -v
 ```
-## Steps to Install Appointment-booking-app
+## Steps to Install Appointment-booking-app :package:
 
-### 1. Clone the repository:
+### 1. Clone the repository: :inbox_tray:  
 ```bash
 git clone https://github.com/<your-github-username>/Appointment-booking-app.git
 ```
-### 2. Navigate to the project directory
+### 2. Navigate to the project directory :open_file_folder:
 ```bash
 cd Appointment-booking-app
 ```
-### 3. Install the dependencies:
+### 3. Install the dependencies: :package:
 - For Frontend:
 ```bash
 cd frontend
@@ -97,11 +91,11 @@ npm install
 node index.js
 ```
 
-### 4.Start the application:
+### 4.Start the application: :rocket:
 ```bash
 npm start
 ```
-## 5. Usage
+## 4. Usage :bulb:
 
 Once you have set up the project, you can:
 
@@ -110,7 +104,7 @@ Once you have set up the project, you can:
 - Test with sample data: Use provided sample data or mock APIs for testing the functionality.
 
 
-## 6. Contributing 🤝
+## 5. Contributing :handshake:
 
 We welcome contributions from everyone! If you would like to contribute to ElectroKart, please follow these steps:
 
@@ -120,12 +114,7 @@ We welcome contributions from everyone! If you would like to contribute to Elect
    git clone https://github.com/<your-github-username>/Appointment-booking-app.git
 ```
 
-<<<<<<< HEAD
-## Tech Stack
-=======
-
-## 7. Pull Request Review Criteria 🧲
->>>>>>> faaaced863db249c03f89cda3ff117a7302d9c69
+## 6. Pull Request Review Criteria :mag:
 
 1. Please fill out the PR template properly when creating a pull request.
 2. Assign yourself to the issue you’re working on to help us track progress.
@@ -137,27 +126,25 @@ We welcome contributions from everyone! If you would like to contribute to Elect
 npm run test
 ```
 
-## 8. Code of Conduct 😇
+## 7. Code of Conduct :scroll:
 
-<<<<<<< HEAD
 **Database:** MongoDB for storing user data and appointments
 
 **APIs:** Google Maps API for location services
 
-## Future Enhancements
+We strive to create a welcoming and inclusive environment for all contributors and users. By participating in this project, you agree to abide by our Code of Conduct.
+
+## 8.Future Enhancements :sparkles:
 
 Notification System: Implementing email or SMS reminders for upcoming appointments.
 
 Real-time chat feature
-=======
-We strive to create a welcoming and inclusive environment for all contributors and users. By participating in this project, you agree to abide by our Code of Conduct.
 
-### Our Standards
+
+
+### Our Standards :star:
 
 1. **Respect**: Treat everyone with respect, regardless of their background or opinions.
 2. **Inclusivity**: Encourage and support diverse perspectives and contributions.
 3. **Collaboration**: Be open to constructive feedback and collaboration.
 4. **Professionalism**: Maintain professionalism in all interactions, online and offline.
-
-
->>>>>>> faaaced863db249c03f89cda3ff117a7302d9c69
