@@ -3,6 +3,7 @@ import Doctor from '../models/DoctorSchema.js'
 import Booking from '../models/BookingSchema.js'
 import Stripe from 'stripe'
 import messages from '../utils/const.js';
+import sendReminder from '../utils/emailService.js'; // Import the email service
 
 /**
  * Retrieves the checkout session for booking a doctor appointment.
@@ -61,3 +62,25 @@ export const getCheckoutSession = async(req,res)=>{
 
     }
 }
+
+// After booking is saved, send a reminder immediately
+const booking = new Booking({
+    doctor: doctor._id,
+    user: user._id,
+    ticketPrice: doctor.ticketPrice,
+    session: session.id,
+  });
+  
+  await booking.save();
+  
+  // Send reminder email
+  const appointmentDetails = {
+    patientName: user.name,
+    patientEmail: user.email,
+    doctorName: doctor.name,
+    date: new Date(booking.date).toLocaleDateString(),
+    time: new Date(booking.date).toLocaleTimeString(),
+    location: booking.location || 'Online/Clinic',
+  };
+  
+  sendReminder(appointmentDetails);
