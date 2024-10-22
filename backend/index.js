@@ -9,6 +9,7 @@ import doctorRoute from "./Routes/doctor.js";
 import reviewRoute from "./Routes/review.js";
 import bookingRoute from "./Routes/booking.js";
 
+
 dotenv.config();
 
 const app = express();
@@ -46,6 +47,38 @@ app.use("/api/v1/users", userRoute);
 app.use("/api/v1/doctors", doctorRoute);
 app.use("/api/v1/reviews", reviewRoute);
 app.use("/api/v1/bookings", bookingRoute);
+
+const cron = require('node-cron');
+const Appointment = require('./models/BookingSchema'); // Assuming BookingSchema stores appointment data
+const sendReminder = require('./utils/emailService'); // Import the email service
+
+// Schedule the reminder to run daily at 9 AM
+cron.schedule('0 9 * * *', async () => {
+  console.log('Running daily reminder job...');
+
+  // Find all appointments happening in the next 24 hours
+  const upcomingAppointments = await Appointment.find({
+    date: {
+      $gte: new Date(), // Current date and time
+      $lt: new Date(Date.now() + 24 * 60 * 60 * 1000), // 24 hours from now
+    },
+  });
+
+  // Send reminder for each upcoming appointment
+  upcomingAppointments.forEach((appointment) => {
+    const appointmentDetails = {
+      patientName: appointment.patient.name,
+      patientEmail: appointment.patient.email,
+      doctorName: appointment.doctor.name,
+      date: appointment.date.toLocaleDateString(),
+      time: appointment.date.toLocaleTimeString(),
+      location: appointment.location || 'Online/Clinic',
+    };
+
+    sendReminder(appointmentDetails);
+  });
+});
+
 
 app.listen(port, () => {
   connectDB();
